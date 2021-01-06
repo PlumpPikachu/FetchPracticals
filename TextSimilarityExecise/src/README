@@ -1,0 +1,22 @@
+This is a bare bones web service wrapper that wraps a function which returns the Jaccard similarity of two documents
+
+
+To use:
+1. Run SimilarityAPI.py
+2. POST to http://localhost:5000/DocSimilarity/ using JSON parameters "Text1" and "Text2" to contain the documents
+    in question
+
+
+
+NOTES:
+
+    We perform stopword removal using the NLTK stopword corpus without actually importing NLTK. I know it's
+    kind of cheating, but there's no way to do stopword removal without using a corpus, so might as well use a standard
+    one
+
+    Cosine similarity was chosen over methods like Jaccard similarity and tf-idf because 1. it gives me an opportunity
+    to show that I can do some math and 2. it doesn't require a bunch of weights from some external source
+
+    On a similar note, we normalize our bag of words vectors to make sure big differences in document length
+    don't cause big differences in similarity scores not because our inputs vary greatly in length, but because
+    we'd probably do this in any most world applications, and because it's something to talk about
