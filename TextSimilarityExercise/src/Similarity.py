@@ -1,11 +1,12 @@
 import math
-import TextSimilarityExercise.src.TextPrep as prep
+import TextPrep as prep
 
 """
     Gets cosine similarity of two documents
 """
 def GetCosineSimilarity(doc1, doc2):
-    # wrapper function to clean documents and return jaccard similarity
+
+    # wrapper function to clean documents and return cosine similarity
 
     cleanDoc1 = prep.CleanDocument(doc1)
     cleanDoc2 = prep.CleanDocument(doc2)
@@ -18,8 +19,8 @@ def GetCosineSimilarity(doc1, doc2):
     Calculates cosine similarity of two L2 normed, equal length document vectors
 """
 def __cosineSimilarity__(vec1, vec2):
-    # just a wrapper for good naming because in the case where vectors are L2 normed, cosine similarity is just
-    # their dot product according to:
+    # just a wrapper for naming purposes because in the case where vectors are L2 normed, cosine similarity is just
+    # their dot product, according to:
     # https://stackoverflow.com/questions/51290969/is-there-any-reason-to-not-l2-normalize-vectors-before-using-cosine-similarity
 
     return __dotProduct__(vec1, vec2)
@@ -35,8 +36,8 @@ def __dotProduct__(vec1, vec2):
     return sum(i * j for i, j in zip(vec1, vec2))
 
 """
-    Uses Bag of Words to turn word vectors into numeric vectors. Note that we normalize the vectors before
-    returning them, using L2
+    Uses Bag of Words to turn word vectors into numeric vectors. Note that we use L2 to normalize the vectors before
+    returning them
 """
 def __bagOfWords__(doc1, doc2):
 
@@ -64,7 +65,7 @@ def __L2__(vec):
     return [i / sqrt for i in vec]
 
 """
-    Quick method for counting the number of times a word in a given corpus appears in a document
+    Counting the number of times a word in a given corpus appears in a document
 """
 def __countWords__(doc, voc):
 

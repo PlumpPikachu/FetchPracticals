@@ -1,6 +1,7 @@
 import string
 import sys
-import TextSimilarityExecise.src.SimilarityConfig as cfg
+import os
+import SimilarityConfig as cfg
 
 """
     Prepares a document for processing, performing common operations such as removing stop words and punctuation,
@@ -34,7 +35,7 @@ def RemoveStopwords(doc):
 
     # grab list of stopwords
     stopwords = []
-    with open(sys.path[0] + "\\" + cfg.STOPWORD_FILE_NAME, 'r') as f:
+    with open(os.path.join(sys.path[0], cfg.STOPWORD_FILE_NAME), 'r') as f:
         for word in f:
             word = word.split('\n')
             stopwords.append(word[0])

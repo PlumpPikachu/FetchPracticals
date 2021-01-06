@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
-import TextSimilarityExecise.src.Similarity as sim
-import TextSimilarityExecise.src.SimilarityConfig as cfg
+import Similarity as sim
+import SimilarityConfig as cfg
 
 app = Flask(__name__)
 
