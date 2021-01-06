@@ -1,0 +1,23 @@
+This is a bare bones web service for performing document comparison
+
+
+To use:
+1. From /TextSimilarityExercise, run: "docker build . --tag sim-test"
+2. From the same dir, run: "docker run --name sim-test -p 5000:5000 sim-test"
+3. POST to http://localhost:5000/DocSimilarity/ using JSON parameters "Text1" and "Text2" to contain the documents
+    in question
+
+
+
+NOTES:
+
+    We use a corpus to perform stop word removal, but do not import any external libraries. I know it's
+    kind of cheating, but there's no way to do stop word removal without using a corpus, so might as well use a standard
+    one
+
+    Cosine similarity was chosen over methods like Jaccard similarity and tf-idf because 1. it gives me an opportunity
+    to show that I can do some math and 2. it doesn't require a bunch of weights from some external source
+
+    On a similar note, we normalize our bag of words vectors to make sure big differences in document length
+    don't cause big differences in similarity scores not because our inputs vary greatly in length, but because
+    we'd probably do this in many real world applications, and because it's something to talk about
